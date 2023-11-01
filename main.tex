@@ -1,0 +1,451 @@
+%!TEX TS-program = xelatex
+% !TeX program = xelatex
+%!TEX encoding = UTF-8 Unicode
+%----------------------------------------------------------------------------------------
+%   Доорх хэсгийг өөрчлөх шаардлагагүй
+%----------------------------------------------------------------------------------------
+\documentclass[12pt,A4]{report}
+
+\usepackage{fontspec,xltxtra,xunicode}
+\setmainfont[Ligatures=TeX]{Times New Roman}
+\setsansfont{Arial}
+
+% \usepackage[utf8x]{inputenc}
+% \usepackage[mongolian]{babel}
+%\usepackage{natbib}
+\usepackage{geometry}
+%\usepackage{fancyheadings} fancyheadings is obsolete: replaced by fancyhdr. JL
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{afterpage}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb,amsbsy}
+\usepackage{dcolumn,array}
+\usepackage{tocloft}
+\usepackage{dics}
+\usepackage{nomencl}
+\usepackage{upgreek}
+\newcommand{\argmin}{\arg\!\min}
+\usepackage{mathtools}
+\usepackage[hidelinks]{hyperref}
+
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\usepackage{listings}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+\makeatletter
+\usepackage{caption}
+\captionsetup[table]{belowskip=0.5pt}
+\usepackage{subfiles}
+
+\usepackage{listings}
+
+\usepackage{color}
+\definecolor{lightgray}{rgb}{.9,.9,.9}
+\definecolor{darkgray}{rgb}{.4,.4,.4}
+\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+
+\lstdefinelanguage{JavaScript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{
+   language=JavaScript,
+   backgroundcolor=\color{lightgray},
+   extendedchars=true,
+   basicstyle=\footnotesize\ttfamily,
+   showstringspaces=false,
+   showspaces=false,
+   numbers=left,
+   numberstyle=\footnotesize,
+   numbersep=9pt,
+   tabsize=2,
+   breaklines=true,
+   showtabs=false,
+   captionpos=b
+}
+\renewcommand{\lstlistingname}{Код}
+\renewcommand{\lstlistlistingname}{\lstlistingname ын жагсаалт}
+
+\usepackage{color}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.99,0.99,0.99}
+ 
+\lstdefinestyle{mystyle}{
+    basicstyle=\ttfamily\small,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    %basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=false,                 
+    numbers=left,                    
+    numbersep=10pt,                  
+    showspaces=false,                
+    showstringspaces=true,
+    showtabs=false,                  
+    tabsize=2
+}
+ 
+\lstset{style=mystyle, label=DescriptiveLabel} 
+
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+\makenomenclature
+\begin{document}
+
+
+%----------------------------------------------------------------------------------------
+%   Өөрийн мэдээллээ оруулах хэсэг
+%----------------------------------------------------------------------------------------
+
+% Дипломийн ажлын сэдэв
+\title{Криптографын зарим алгоритм, программ}
+% Дипломын ажлын англи нэр
+\titleEng{Some algorithms and programs for cryptography }
+% Өөрийн овог нэрийг бүтнээр нь бичнэ
+\author{Даянгийн Балжинням}
+% Өөрийн овгийн эхний үсэг нэрээ бичнэ
+\authorShort{Д. Балжинням}
+% Удирдагчийн зэрэг цол овгийн эхний үсэг нэр
+\supervisor{Д. Гармаа}
+% Хамтарсан удирдагчийн зэрэг цол овгийн эхний үсэг нэр
+\cosupervisor{Н. Оюун-Эрдэнэ}
+
+% СиСи дугаар 
+\sisiId{20B1NUM0563}
+% Их сургуулийн нэр
+\university{МОНГОЛ УЛСЫН ИХ СУРГУУЛЬ}
+% Бүрэлдэхүүн сургуулийн нэр
+\faculty{ХЭРЭГЛЭЭНИЙ ШИНЖЛЭХ УХААН, ИНЖЕНЕРЧЛЭЛИЙН СУРГУУЛЬ}
+% Тэнхимийн нэр
+\department{МЭДЭЭЛЭЛ, КОМПЬЮТЕРИЙН УХААНЫ ТЭНХИМ}
+% Зэргийн нэр
+\degreeName{Баклаврын судалгааны ажил}
+% Суралцаж буй хөтөлбөрийн нэр
+\programeName{Програм хангамж(D061302)}
+% Хэвлэгдсэн газар
+\cityName{Улаанбаатар}
+% Хэвлэгдсэн огноо
+\gradyear{2023 оны 11 сар}
+
+
+%----------------------------------------------------------------------------------------
+%   Доорх хэсгийг өөрчлөх шаардлагагүй
+%----------------------------------------------------------------------------------------
+\include{src/main-pre}
+
+% Удиртгалыг оруулж ирэх ба abstract.tex файлд удиртгалаа бичнэ
+\include{src/abstract}
+
+%----------------------------------------------------------------------------------------
+%   Дипломын үндсэн хэсэг эндээс эхэлнэ
+%----------------------------------------------------------------------------------------
+%\addcontentsline{toc}{part}{БҮЛГҮҮД}
+% Шинэ бүлэг
+\chapter{Тайлан боловсруулах зөвлөмж}
+\subfile{writing.tex}
+
+\chapter{Бичвэр боловсруулалт}
+Бүлгийн гарчгийн дор тухайн бүлэгт юу агуулж байгаа, юуны талаар өгүүлэхийг товч бичих нь баримт бичгийг уншигчдад илүү ойлгомжтой болгодог.
+% Бүлгийн дэд гарчиг
+\section{Шинэ мөр ба цогцолбор}
+Латекс бичих явцад олон хоосон зай, шинэ мөр авахад гаралтын файлд ганцхан хоосон зайгаар дүрсэлж харуулдгаараа бусад засварлагчаас ялгаатай юм.
+
+Шинэ мөр буюу цогцолбор (paragraph) авахдаа хоёр удаа enter товч дарах буюу нэг хоосон мөр үлдээж бичнэ. \par Эсвэл par командыг бичнэ.
+\\Харин шинэ мөр авахдаа хоёр ширхэг ургашаа налуу зураас дарааллуулан бичнэ.  Дэлгэрэнгүйг \cite{pharagraph1}-с унш.
+
+Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+
+The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+
+\section{Бичвэр зэрэгцүүлэх}
+\subsection{Зүүн тийш зэрэгцүүлэх}
+\begin{flushleft}
+	Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+
+	The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+\end{flushleft}
+
+\subsection{Баруун тийш зэрэгцүүлэх}
+\begin{flushright}
+	Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+
+	The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+\end{flushright}
+
+
+\section{Хэлбэржилт}
+Энэ бүлэгт бичвэрийг хэлбэржүүлэх (format) командуудын талаар дурьдана. Илүү дэлгэрэнгүйг \cite{format1}-с хар.
+
+\subsection{Тодруулах}
+\texttt{\textbackslash textbf} командаар бичвэрийг \textbf{тодруулах буюу болд} болгоно.
+
+\subsection{Налуулах}
+\texttt{\textbackslash textit} командаар бичвэрийг \textit{бичмэл буюу италик} болгоно.
+
+\subsection{Доогуур зураас}
+\texttt{\textbackslash underline} командаар бичвэрийг \textbf{тодруулах буюу болд} болгоно.
+
+\section{URL оруулах}
+\texttt{\textbackslash url} команд дотор холбоосыг бичнэ. \url{http://milab.num.edu.mn}
+
+
+\section{Жагсаалт}
+\subsection{Энгийн жагсаалт}
+\texttt{\textbackslash begin\{itemize\}} командын дотор энгийн жагсаалтыг бичнэ \cite{list}.
+\begin{itemize}
+	\item Жагсаалтын эхний элемент
+	\item Жагсаалтын хоёрдугаар элемент
+	\item Жагсаалтын гуравдугаар элемент
+	\item Жагсаалтын дөрөвдүгээр элемент
+\end{itemize}
+
+\subsection{Дугаартай жагсаалт}
+\texttt{\textbackslash begin\{enumerate\}} командын дотор энгийн жагсаалтыг бичнэ \cite{list}.
+\begin{enumerate}
+	\item Жагсаалтын эхний элемент
+	\item Жагсаалтын хоёрдугаар элемент
+	\item Жагсаалтын гуравдугаар элемент
+	\item Жагсаалтын дөрөвдүгээр элемент
+\end{enumerate}
+
+
+\chapter{Ишлэл, зүүлт}
+\section{Ишлэл}
+Ашигласан материал эсвэл номзүйг бичвэр тодор ишлэхдээ cite командаар заалтыг нь оруулна.
+Үүний тулд энэ хуудасны хамгийн доор байгаа \textit{Ашигласан материал, ном зүй} хэсэгт
+bibitem командыг нэмнэ. \\
+
+
+Жишээ нь: bibitem\{image1\} Гарчиг, Зохиогчдын нэр, хэвлэсэн он, хэвлэсэн газар
+
+Дээрх жишээнд image1 гэдэг нь ишлэх нэр. Доод талын мөрөнд нь байгаа дарааллын дагуу
+ашигласан материалыг бичнэ.
+
+Ишлэхдээ cite командад ишлэх нэрийг дамжуулж өгнө. Жишээ нь cite\{image1\}.
+\section{Зүүлт}
+Зүүлтийг footnote командаар оруулна \footnote{Энэ холбоосоос зүүлтийн талаар дэлгэрэнгүй унш: \url{https://www.sharelatex.com/learn/Footnotes}}.
+
+\chapter{Зураг}
+Зураг оруулахдаа includegraphics командыг ашиглана. Доорх жишээнд figure01.png гэдэг нь зургийн файлын нэр бөгөөд өргөтгөлийг заавал бичих шаардлагагүй. Зургийн файл нь main.tex файлтай нэг фолдерт байх шаардлагатайг анхаарна уу! Дэлгэрэнгүйг \cite{image1}-с үз.
+
+\includegraphics{figure01.png}
+
+
+\section{Зургийн хэмжээ өөрчлөх}
+Хэмжээг томруулахдаа 0-1 хооронд утга ашиглана. Хэрэв 2 гэвэл 2 дахин томроно.
+\begin{center}
+	includegraphics[scale=0.5]\{figure01\}
+\end{center}
+
+\includegraphics[scale=0.9]{figure01}
+
+Өндөр өргөнийг шууд зааж өгч болох бөгөөд дөрвөлжин хаалтан дотор доорх байдлаар бичнэ.
+\begin{center}
+	includegraphics[width=3cm, height=4cm]\{figure01\}
+\end{center}
+\includegraphics[width=3cm, height=4cm]{figure01}
+
+\section{Зураг эргүүлэх}
+Зургийн эргүүлэхдээ angle параметрт эргүүлэх өнцгийн хэмжээг өгнө.
+\begin{center}
+	includegraphics[width=3cm, height=4cm, angle=45]\{figure01\}
+\end{center}
+\includegraphics[width=3cm, height=4cm, angle=45]{figure01}
+
+\section{Зургийн нэр}
+Зургын нэрийг begin\{figure\} хооронд includegraphics командтай хамт оруулна Зураг \ref{fig:lion1}-ыг хар.
+
+Энд зургийн нэрээс гадна label-ийг давхар бичиж өгөх шаардлагатай ба энэ нь зургийн дугаараар заалт хийхэд ашиглана. Жишээ нь: Зураг \ref{fig:lion2}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.9]{figure01}
+	\caption{Зураг голлуулах}
+	\label{fig:lion1}
+\end{figure}
+
+\section{Зураг голлуулах}
+Зургийг голлуулахдаа includegraphics командын өмнө centering
+командыг бичээд reflectbox командыг includegraphics болон caption
+командуудад үйлчлэхээр оруулна.
+
+\begin{figure}[h]
+	\includegraphics[scale=0.5]{figure01.png}
+	\caption{Зургийн нэрийг энд бичнэ}
+
+	\label{fig:lion2}
+\end{figure}
+
+\section{Зургийн чанар}
+LaTex-т зургийг вектор форматаар (svg, eps) оруулбал хэвлэх болон томруулж харахад зургийн чанар
+алдагдахгүй. Тиймээс аль болох вектор зураг оруулж өгвөл зүгээр.
+
+\chapter{Хүснэгт оруулах}
+Хүснэгт оруулахад tabular командыг ашигладаг \cite{table}.
+
+\begin{table}[h]
+	\centering
+	\caption{Хүснэгтийн нэр. Хүснэгтийн нэр хүснэгтийн дээд талд байрлана. }
+	\label{my-label}
+	\begin{tabular}{|l|l|l|l|l|}
+		\hline
+		\textbf{Багана1} & \textbf{Багана2}  & \textbf{Багана3} & \textbf{Багана4} & \textbf{Багана5} \\ \hline
+		өгөгдөл          & \textit{өгөгдөл1} &                  &                  &                  \\ \hline
+		                 &                   &                  &                  &                  \\ \hline
+		                 &                   &                  &                  &                  \\ \hline
+	\end{tabular}
+\end{table}
+
+\section{Хүснэгт зурах хэрэгсэл}
+Цэвэр LaTex кодоор Хүснэгт үүсгэхэд харьцангуй төвөгтэй байдаг учир
+хялбар хэрэгслийг ашиглаж болно.
+
+Тухайлбал \url{https://www.tablesgenerator.com/} холбоосруу орж хүснэгтийг визуал орчинд зураад үүсгэж өгсөн LaTex кодыг энд хуулж оруулна.
+
+\chapter{Код ба алгоритм оруулах}
+Код оруулахдаа begin\{lstlisting\}  ... end\{lstlisting\} командын хооронд бичнэ.
+
+\begin{lstlisting}[language=C, caption=С хэлний кодын жишээ, frame=single]
+#include <stdio.h>
+#define N 10
+/* Block
+ * comment */
+int main()
+{
+    int i;
+    // Line comment.
+    puts("Hello world!");
+    for (i = 0; i < N; i++)
+    {
+        puts("LaTeX is also great for  programmers!");
+    }
+    return 0;
+}
+\end{lstlisting}
+
+Мөн кодын эх файлыг шууд оруулж ирж болох бөгөөд доорх командыг бичнэ.
+
+\lstinputlisting[language=C, firstline=11, lastline=16, caption=Кодын файлаас хэсэгчилж оруулах]{src/hello.c}
+
+Мэдээллийн технологи, програм хангамжийн ажлын тайланд алгоримтыг хийсвэр кодын бичиглэлээр оруулах шаардлага гардаг. Дараах жишээгээр (Алгоритм \ref{alg:task_gen}) хийсвэр кодоор хэрхэн бичиж болохыг харуулав. Мөн бичвэр дотроо алгоритмд ашиглаж байгаа $parentId$ хувьсагчийг дурдаж бичиж болдог.
+
+\makeatletter
+\newenvironment{megaalgorithm}[1][htb]{%
+	\renewcommand{\ALG@name}{Алгоритм}% Update algorithm name
+	\begin{algorithm}[#1]%
+		}{\end{algorithm}}
+\makeatother
+
+\begin{megaalgorithm}
+	\caption{Даалгавар үүсгэх алгоритм}\label{alg:task_gen}
+	\begin{algorithmic}[1]
+		\Function{traverse}{$parentId$}\Comment{parentId--эцэг ойлголтын дугаар}
+		\State $children \gets \Call{getChildConceptIds}{parentId$}
+			\State $childCount \gets children.count$
+		\If{$childCount == 0$}
+		\State \textbf{return}
+		\EndIf
+		\For{$i = 0$ \textbf{to} $childCount$}
+		\State \Call{generateTask}{$children_i$}\Comment{Орчуулгын даалгавар үүсгэх}
+		\EndFor
+		\For{$i = 0$ \textbf{to} $childCount$}
+		\State \Call{traverse}{$children_i$}
+		\EndFor
+		\EndFunction
+	\end{algorithmic}
+\end{megaalgorithm}
+
+%----------------------------------------------------------------------------------------
+%   Дүгнэлт эндээс эхэлнэ
+%----------------------------------------------------------------------------------------
+\conclusion{Дүгнэлт}
+Дүгнэлтийг энд бич
+
+
+%----------------------------------------------------------------------------------------
+%   Дипломын номзүй, хавсралтын хэсэг эндээс эхэлнэ
+%----------------------------------------------------------------------------------------
+
+\singlespace
+\addcontentsline{toc}{part}{НОМ ЗҮЙ}
+\begin{thebibliography}{}
+	% Ашигласан материалыг эндээс оруулна
+	\bibitem{image1}
+	Inserting Images, Share LaTex, \url{https://www.sharelatex.com/learn/Inserting_Images}
+	\bibitem{pharagraph1}
+	Paragraphs and new lines,  Share LaTex, \url{https://www.sharelatex.com/learn/Paragraphs_and_new_lines}
+	\bibitem{format1}
+	Bold, italics and underlining, Share LaTex, \url{https://www.sharelatex.com/learn/Bold,_italics_and_underlining}
+	\bibitem{list}
+	Lists, Share LaTex, \url{https://www.sharelatex.com/learn/Lists}
+	\bibitem{table}
+	Tables, Share LaTex, https://www.sharelatex.com/learn/Tables
+\end{thebibliography}
+
+
+%----------------------------------------------------------------------------------------
+%   Хавсралтууд эндээс эхэлнэ
+%----------------------------------------------------------------------------------------
+\appendix
+\addcontentsline{toc}{part}{ХАВСРАЛТ}
+
+% Хавсралтын нэр. Хавсралт гэдэг үг агуулахгүй
+\chapter{Шинжилгээ зохиомж}
+Хавсралтын агуулга
+
+% Хавсралтын нэр. Хавсралт гэдэг үг агуулахгүй
+\chapter{Кодын хэрэгжүүлэлт}
+
+\begin{lstlisting}[language=Python]
+	import numpy as np
+	 
+	def incmatrix(genl1,genl2):
+			m = len(genl1)
+			n = len(genl2)
+			M = None #to become the incidence matrix
+			VT = np.zeros((n*m,1), int)  #dummy variable
+	 
+			#compute the bitwise xor matrix
+			M1 = bitxormatrix(genl1)
+			M2 = np.triu(bitxormatrix(genl2),1) 
+	 
+			for i in range(m-1):
+					for j in range(i+1, m):
+							[r,c] = np.where(M2 == M1[i,j])
+							for k in range(len(r)):
+									VT[(i)*n + r[k]] = 1;
+									VT[(i)*n + c[k]] = 1;
+									VT[(j)*n + r[k]] = 1;
+									VT[(j)*n + c[k]] = 1;
+	 
+									if M is None:
+											M = np.copy(VT)
+									else:
+											M = np.concatenate((M, VT), 1)
+	 
+									VT = np.zeros((n*m,1), int)
+	 
+			return M
+	\end{lstlisting}
+
+\end{document}
