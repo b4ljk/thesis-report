@@ -161,15 +161,9 @@
 %----------------------------------------------------------------------------------------
 %\addcontentsline{toc}{part}{БҮЛГҮҮД}
 % Шинэ бүлэг
-\chapter{Онолын судалгаа}
-\section{Тэгш хэмт крифтограф}
-\subsection{Блокон шифрлэлт}
-\subsection{Урсгалын шифрлэлт}
+\include{src/chapters/chapter1}
 
-\section{Өгөгдөл шифрлэлтийн стандарт}
-\subsection{DES алгоритм}
-\subsection{AES-н үйлдлүүд}
-\chapter{Системийн зохиомж}
+
 
 \chapter{Тайлан боловсруулах зөвлөмж}
 \subfile{writing.tex}
@@ -389,7 +383,7 @@ int main()
 %   Дүгнэлт эндээс эхэлнэ
 %----------------------------------------------------------------------------------------
 \conclusion{Дүгнэлт}
-Дүгнэлтийг энд бич
+сольсонДүгнэлтийг энд бич
 
 
 %----------------------------------------------------------------------------------------
@@ -400,16 +394,15 @@ int main()
 \addcontentsline{toc}{part}{НОМ ЗҮЙ}
 \begin{thebibliography}{}
 	% Ашигласан материалыг эндээс оруулна
-	\bibitem{image1}
-	Inserting Images, Share LaTex, \url{https://www.sharelatex.com/learn/Inserting_Images}
+	\bibitem{AES}
+	Daemen, J., \& Rijmen, V. (2002). "The Design of Rijndael: AES - The Advanced Encryption Standard." Springer. p.1-2.
 	\bibitem{pharagraph1}
 	Paragraphs and new lines,  Share LaTex, \url{https://www.sharelatex.com/learn/Paragraphs_and_new_lines}
-	\bibitem{format1}
-	Bold, italics and underlining, Share LaTex, \url{https://www.sharelatex.com/learn/Bold,_italics_and_underlining}
-	\bibitem{list}
-	Lists, Share LaTex, \url{https://www.sharelatex.com/learn/Lists}
-	\bibitem{table}
-	Tables, Share LaTex, https://www.sharelatex.com/learn/Tables
+	\bibitem{intro_crypo}
+	Д. Гармаа (2022). "Криптографын үндэс." Улаанбаатар хот.
+	\bibitem{modern_crypto}
+	Bellare, Mihir; Rogaway, Phillip (11 May 2005), Introduction to Modern Cryptography (Lecture notes), archived (PDF) from the original on 2023-10-30, chapter 3.
+
 \end{thebibliography}
 
 
