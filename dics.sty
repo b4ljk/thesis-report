@@ -10,13 +10,13 @@
 % Define singlespace and doublespace commands for 12pt fonts.
 %
 \newcommand{\doublespace} {
-  \renewcommand{\baselinestretch}{1.66}\small\normalsize
+	\renewcommand{\baselinestretch}{1.66}\small\normalsize
 }
 \newcommand{\oneandhalfspace} {
-  \renewcommand{\baselinestretch}{1.24}\small\normalsize
+	\renewcommand{\baselinestretch}{1.24}\small\normalsize
 }
 \newcommand{\singlespace} {
-  \renewcommand{\baselinestretch}{0.9}\small\normalsize
+	\renewcommand{\baselinestretch}{0.9}\small\normalsize
 }
 \singlespace
 
@@ -76,129 +76,129 @@
 \newlength{\tenblanklines}\setlength{\tenblanklines}{1.5 in}
 
 \newcommand\makefrontpage{
-  \enlargethispage{0.5in} %make extra room where page number would go
-  \thispagestyle{empty}
-  \noindent
-  \begin{minipage}[t][647.0truept][t]{\linewidth}
-  \begin{center}
-	\textbf{\@university} \\
-    \textbf{\@faculty}\\ 
-    \textbf{\@department}
-  
-  \end{center}
-  \vspace{\tenblanklines}
-  \begin{center}
-  	\large{\@author}
-  \end{center}
-  \vspace{\fiveblanklines}
-  \begin{center}
-    \singlespace    
-    \begin{LARGE}
-		\textbf{\@title}
-	\end{LARGE}
-	\\ \ \\
-	\begin{Large}
-		\textbf{(\@titleEng)}
-	\end{Large}
-	 \\ \ \\	
-		
-    \@programeName
-    
-    \@degreeName
-    
-  \end{center}
-  \vspace{\tenblanklines}
-  \vfill
-   \begin{center}
-   \doublespace
-   
-   \@cityName \\
-	 \@gradyear
-   \end{center} 
+	\enlargethispage{0.5in} %make extra room where page number would go
+	\thispagestyle{empty}
+	\noindent
+	\begin{minipage}[t][647.0truept][t]{\linewidth}
+		\begin{center}
+			\textbf{\@university} \\
+			\textbf{\@faculty}\\
+			\textbf{\@department}
 
-\end{minipage}
+		\end{center}
+		\vspace{\tenblanklines}
+		\begin{center}
+			\large{\@author}
+		\end{center}
+		\vspace{\fiveblanklines}
+		\begin{center}
+			\singlespace
+			\begin{LARGE}
+				\textbf{\@title}
+			\end{LARGE}
+			\\ \ \\
+			\begin{Large}
+				\textbf{(\@titleEng)}
+			\end{Large}
+			\\ \ \\
 
-\clearpage
+			\@programeName
+
+			\@degreeName
+
+		\end{center}
+		\vspace{\tenblanklines}
+		\vfill
+		\begin{center}
+			\doublespace
+
+			\@cityName \\
+			\@gradyear
+		\end{center}
+
+	\end{minipage}
+
+	\clearpage
 }
 
 \renewcommand\maketitle{
-  \enlargethispage{0.5in} %make extra room where page number would go
-  \setcounter{page}{0}
-  \thispagestyle{empty}
-\begin{minipage}[t][647.0truept][t]{\linewidth}
-  \begin{center}
-  	
-	\textbf{\@university} \\
-    \textbf{\@faculty}\\ 
-    \textbf{\@department}
-  
-  \end{center}
-  \vspace{\tenblanklines}
-  
-  \vspace{\fiveblanklines}
-  \begin{center}
-    \singlespace
-    \begin{Large}
-		\textbf{\@title}
-	\end{Large}
-	\\ \ \\
-	\begin{Large}
-		\textbf{(\@titleEng)}
-	\end{Large}
-	 \\ \ \\	
-     \@programeName
-     
-	\@degreeName
-  \end{center}
-  \vspace{\tenblanklines}
+	\enlargethispage{0.5in} %make extra room where page number would go
+	\setcounter{page}{0}
+	\thispagestyle{empty}
+	\begin{minipage}[t][647.0truept][t]{\linewidth}
+		\begin{center}
 
-\begin{tabular}{m{4cm} m{4cm} m{15cm}}
-  Удирдагч:	& \underline{\hspace{4cm}} & \@supervisor  \\    
-  \\
-  Хамтран удирдагч:	& \underline{\hspace{4cm}} & \@cosupervisor  \\  
-  
-  \\
-  Гүйцэтгэсэн:	& \underline{\hspace{4cm}} & \@authorShort \  (\@sisiId)
-  \end{tabular}
-  
-   \vfill
-   \begin{center}
-   \doublespace
-   
-   \@cityName \\
-	 \@gradyear
-   \end{center} 
+			\textbf{\@university} \\
+			\textbf{\@faculty}\\
+			\textbf{\@department}
 
-\end{minipage}
-\clearpage
+		\end{center}
+		\vspace{\tenblanklines}
+
+		\vspace{\fiveblanklines}
+		\begin{center}
+			\singlespace
+			\begin{Large}
+				\textbf{\@title}
+			\end{Large}
+			\\ \ \\
+			\begin{Large}
+				\textbf{(\@titleEng)}
+			\end{Large}
+			\\ \ \\
+			\@programeName
+
+			\@degreeName
+		\end{center}
+		\vspace{\tenblanklines}
+
+		\begin{tabular}{m{4cm} m{4cm} m{15cm}}
+			Удирдагч:    & \underline{\hspace{4cm}} & \@supervisor                \\
+			\\
+			% Хамтран удирдагч:	& \underline{\hspace{4cm}} & \@cosupervisor  \\  
+
+			\\
+			Гүйцэтгэсэн: & \underline{\hspace{4cm}} & \@authorShort \  (\@sisiId)
+		\end{tabular}
+
+		\vfill
+		\begin{center}
+			\doublespace
+
+			\@cityName \\
+			\@gradyear
+		\end{center}
+
+	\end{minipage}
+	\clearpage
 }
 
 %
 % redefine abstract environment
 %
 \renewenvironment{abstract}{
-  %\setcounter{page}{1}
-  \addcontentsline{toc}{part}{УДИРТГАЛ}
-  \begin{center}
-    \doublespace
-    \begin{large}
-    \textbf{УДИРТГАЛ}
-    \end{large}
-  \end{center}
+	%\setcounter{page}{1}
+	\addcontentsline{toc}{part}{УДИРТГАЛ}
+	\begin{center}
+		\doublespace
+		\begin{large}
+			\textbf{УДИРТГАЛ}
+		\end{large}
+	\end{center}
 } {
-  \clearpage
+	\clearpage
 }
 
 %
 % make acknowledgements environment
 %
 \newenvironment{acknowledgements}{
-  \begin{center}
-    \doublespace
-    ТАЛАРХАЛ
-  \end{center}
+	\begin{center}
+		\doublespace
+		ТАЛАРХАЛ
+	\end{center}
 } {
-  \clearpage
+	\clearpage
 }
 
 %
@@ -208,11 +208,11 @@
 %\clearpage\vspace*{0.5\textheight}
 %\centerline{\itshape #1}\clearpage
 \newcommand{\dedicationpage}[1]{
-\begin{center}
-   \doublespace
-   {\itshape #1}
-\end{center}
-\clearpage
+	\begin{center}
+		\doublespace
+		{\itshape #1}
+	\end{center}
+	\clearpage
 }
 
 %
@@ -269,17 +269,17 @@
 \renewcommand{\headrulewidth}{0pt}
 %
 % Get the header on subsequent pages right.
-\renewcommand{\@cfttocstart}{ 
-   \newgeometry{top=1.0in,hmargin=1.25in,height=9.0in,
-   includehead,includefoot,letterpaper}%,showcrop,showframe}
+\renewcommand{\@cfttocstart}{
+	\newgeometry{top=1.0in,hmargin=1.25in,height=9.0in,
+		includehead,includefoot,letterpaper}%,showcrop,showframe}
 
-   \doublespace
-   \pagestyle{fancyplain}
-   \afterpage{\lhead{}\rhead{}}
+	\doublespace
+	\pagestyle{fancyplain}
+	\afterpage{\lhead{}\rhead{}}
 }
 
 \renewcommand{\@cfttocfinish}{
-   \restoregeometry\clearpage\afterpage{\lhead{}\rhead{}}
+	\restoregeometry\clearpage\afterpage{\lhead{}\rhead{}}
 }
 %
 % Get the title for the LOT normal sized, centered, and at the right height.
@@ -308,27 +308,27 @@
 % have a command for this so a hack is necessary.
 %
 \def\@chapter[#1]#2{\ifnum \c@secnumdepth >\m@ne
-                        \refstepcounter{chapter}%
-                        \typeout{\@chapapp\thechapter.}%
-                        \addcontentsline{toc}{chapter}%
-                        %\uppercase{БҮЛЭГ}
-                        %\chaptername гэдгээр БҮЛЭГ гэж оруулж болох
-                        {\protect\numberline{\thechapter.}\uppercase{#1}}%
-                    \else
-                        \addcontentsline{toc}{chapter}{#1}%
-                    \fi
-                    \chaptermark{#1}%
+		\refstepcounter{chapter}%
+		\typeout{\@chapapp\thechapter.}%
+		\addcontentsline{toc}{chapter}%
+		%\uppercase{БҮЛЭГ}
+		%\chaptername гэдгээр БҮЛЭГ гэж оруулж болох
+		{\protect\numberline{\thechapter.}\uppercase{#1}}%
+	\else
+		\addcontentsline{toc}{chapter}{#1}%
+	\fi
+	\chaptermark{#1}%
 
-                    %These two lines below are commented out.
+	%These two lines below are commented out.
 
-                    %\addtocontents{lof}{\protect\addvspace{10\p@}}%
-                    %\addtocontents{lot}{\protect\addvspace{10\p@}}%
-                    \if@twocolumn
-                      \@topnewpage[\@makechapterhead{#2}]%
-                    \else
-                      \@makechapterhead{#2}%
-                      \@afterheading
-                    \fi}
+	%\addtocontents{lof}{\protect\addvspace{10\p@}}%
+	%\addtocontents{lot}{\protect\addvspace{10\p@}}%
+	\if@twocolumn
+		\@topnewpage[\@makechapterhead{#2}]%
+	\else
+		\@makechapterhead{#2}%
+		\@afterheading
+	\fi}
 
 %
 % Change some of the rules for float placement.
@@ -347,14 +347,14 @@
 %
 % Chapters names are all caps, centered under "Chapter N"
 \renewcommand{\@makechapterhead}[1]{
-%\begin{center}
-\begin{huge}
-\noindent \uppercase{\textbf{\thechapter. {#1}}\vspace{0.3\baselineskip}}\\
-\end{huge}
-% \begin{huge}
-% \textbf{\expandafter{#1}}\vspace{\baselineskip}\\
-% \end{huge}
-%\end{center}
+	%\begin{center}
+	\begin{huge}
+		\noindent \uppercase{\textbf{\thechapter. {#1}}\vspace{0.3\baselineskip}}\\
+	\end{huge}
+	% \begin{huge}
+	% \textbf{\expandafter{#1}}\vspace{\baselineskip}\\
+	% \end{huge}
+	%\end{center}
 }
 % Numbers chapters, sections, and subsections
 \setcounter{secnumdepth}{2}
@@ -362,7 +362,7 @@
 \renewcommand{\section}{\@startsection{section}{1}{0 in}{1em}{1em}{\raggedright\large\textbf}}
 % Center and italicize subsection titles
 \renewcommand{\subsection}{\@startsection{subsection}{2}{0 in}{1em}{1em}
-{\raggedright\slshape\textbf}}
+	{\raggedright\slshape\textbf}}
 
 
 % This is a bit of a hack.  I couldn't figure out a better way, but surely there
@@ -373,22 +373,22 @@
 % title page right.
 
 \renewcommand\appendix{
-   \renewcommand{\chaptername}{Хавсралт}
-   \setcounter{chapter}{0}%
-   \setcounter{section}{0}%
-   \gdef\@chapapp{\appendixname}%
-   \gdef\thechapter{\@Alph\c@chapter}
-   
-   % I added this line.
+	\renewcommand{\chaptername}{Хавсралт}
+	\setcounter{chapter}{0}%
+	\setcounter{section}{0}%
+	\gdef\@chapapp{\appendixname}%
+	\gdef\thechapter{\@Alph\c@chapter}
 
-   \singlespace}
-   
+	% I added this line.
+
+	\singlespace}
+
 \newcommand\conclusion[1]{
 	\newpage
-	\addcontentsline{toc}{part}{\uppercase{#1}}    
-   \begin{huge}
-   \textbf{#1}\vspace{\baselineskip}\\
-   \end{huge}
+	\addcontentsline{toc}{part}{\uppercase{#1}}
+	\begin{huge}
+		\textbf{#1}\vspace{\baselineskip}\\
+	\end{huge}
 }
 
 %\let\oldbibname\bibname
