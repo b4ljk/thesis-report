@@ -1,0 +1,126 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider     = "mysql"
+    url          = env("DATABASE_URL")
+    relationMode = "prisma"
+}
+
+model Example {
+    id        Int      @id @default(autoincrement())
+    name      String
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@index([name])
+}
+
+// Necessary for Next auth
+model Account {
+    id                String  @id @default(cuid())
+    userId            String
+    type              String
+    provider          String
+    providerAccountId String
+    refresh_token     String? @db.Text
+    access_token      String? @db.Text
+    expires_at        Int?
+		...
+    token_type        String?
+    scope             String?
+    id_token          String? @db.Text
+    session_state     String?
+    user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+    @@unique([provider, providerAccountId])
+    @@index([userId])
+}
+
+model Session {
+    id           String   @id @default(cuid())
+    sessionToken String   @unique
+    userId       String
+    expires      DateTime
+    user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+    @@index([userId])
+}
+
+enum Role {
+    ADMIN
+    USER
+}
+
+model User {
+    id                String              @id @default(cuid())
+    email             String              @unique
+    password          String              @db.Text
+    name              String?
+    emailVerified     DateTime?
+    image             String?
+    role              Role                @default(USER)
+    accounts          Account[]
+    sessions          Session[]
+    UserUploadedFiles UserUploadedFiles[]
+    SignatureDigest   SignatureDigest[]
+    UserGeneratedKeys UserGeneratedKeys[]
+    OtpSecret         OtpSecret[]
+}
+
+model VerificationToken {
+    identifier String
+    token      String   @unique
+    expires    DateTime
+
+    @@unique([identifier, token])
+}
+
+model UserUploadedFiles {
+    id        String   @id @default(cuid())
+    userId    String
+    fileName  String
+    filePath  String
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+    @@index([userId])
+}
+
+model UserGeneratedKeys {
+    id             String   @id @default(cuid())
+    userId         String
+    publicKeyLink  String
+    privateKeyLink String
+    createdAt      DateTime @default(now())
+    updatedAt      DateTime @updatedAt
+    user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+    @@index([userId])
+}
+
+model SignatureDigest {
+    id        String   @id @default(cuid())
+    fileName  String
+    userId    String
+    digest    String   @db.Text
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+    @@index([userId])
+}
+
+model OtpSecret {
+    id         String   @id @default(cuid())
+    userId     String
+    isVerified Boolean  @default(false)
+    secret     String   @db.Text
+    createdAt  DateTime @default(now())
+    updatedAt  DateTime @updatedAt
+    user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+    @@index([userId])
+}

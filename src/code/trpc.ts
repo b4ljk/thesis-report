@@ -50,7 +50,7 @@ const enforceUserIsAuthed = t.middleware(({ ctx, next }) => {
   if (!ctx.session?.user) {
     throw new TRPCError({
       code: "UNAUTHORIZED",
-      message: "Хэрэглэгч нэвтрээгүй байна".toUpperCase(),
+      message: "User is not logged in".toUpperCase(),
     });
   }
   return next({
