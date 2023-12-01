@@ -1,0 +1,116 @@
+\section{ER диаграм}
+\begin{table}[h]
+	\caption{User хүснэгт}
+	\begin{tabular}{|l|l|l|p{8cm}|}
+	\hline
+	№ &  Талбарын нэр & Өгөгдлийн төрөл & Тайлбар \\ \hline
+	1 &  id & Varchar & Хэрэглэгчийн дахин давтагдашгүй ID-г хад-
+	гална\\ \hline
+	2 &  email & Varchar & Хэрэглэгчийн цахим шууданг хадгална\\ \hline
+	3 &  password & Varchar & Хэрэглэгчийн нууц үгийг шифрлэж, энэ талбарт хадгална \\ \hline
+    4 &  name & Varchar & Хэрэглэгчийн интерфейсээс оруулсан хэрэглэгчийн нэр. Зөвхөн латин үсгийг хадгална. \\ \hline
+	5 &  emailVerified & DateTime & Хэрэглэгчийн имэйлийг баталгаажуулсан цагийн тэмдэ \\ \hline
+	6 &  image & Varchar & Хэрэглэгчийн байршуулсан зургийн холбоос хадгалагдах бөгөөд зам нь энэ талбарт хадгалагдана \\ \hline
+	7 &  role & ENUM & Хэрэглэгчийн нэвтрэлтийн эрх (USER, ADMIN) \\ \hline
+\end{tabular}
+\end{table}
+
+
+\begin{table}[h]
+	\caption{Session хүснэгт}
+	\begin{tabular}{|l|l|l|p{8cm}|}
+	\hline
+	№ &  Талбарын нэр & Өгөгдлийн төрөл & Тайлбар \\ \hline
+	1 &  id & Varchar & Нэвтрэлтийн түүхийн өвөрмөц ID \\ \hline
+	2 &  sessionToken & Varchar & Гуравдагч этгээдийн токен (Github, Google) байна. \\ \hline
+	3 &  userId & Varchar & Хэрэглэгчийн өвөрмөц ID \\ \hline
+	4 &  expires & DateTime & Дуусах хугацаа \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+	\caption{VerificationToken хүснэгт}
+	\begin{tabular}{|l|l|l|p{8cm}|}
+	\hline
+	№ &  Талбарын нэр & Өгөгдлийн төрөл & Тайлбар \\ \hline
+	1 &  identifier & Varchar & Токенд зориулсан өвөрмөц ID\\ \hline
+	2 &  token & Varchar & Баталгаажуулалтын Токен \\ \hline
+	3 &  expires & DateTime & Дуусах хугацаа \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+	\caption{Account хүснэгт}
+	\begin{tabular}{|l|l|l|p{8cm}|}
+	\hline
+	№ &  Талбарын нэр & Өгөгдлийн төрөл & Тайлбар \\ \hline
+	1 &  id & Varchar & Өвөрмрц ID \\ \hline
+	2 &  userId & Varchar & Энэ бүртгэлтэй холбоотой хэрэглэгчийн ID \\ \hline
+	3 &  type & Varchar & Бүртгэлийн тө \\ \hline
+	4 &  provider & Varchar & Аль гуравдагч этгээдийг дамжиж нэвтэрсэн (Github, Google) \\ \hline
+	5 &  providerAccountId & Varchar & Хаягийн өвөрмөц ID \\ \hline
+    6 &  refresh\_token & Varchar & Шинэ токен үүсгэх нууц үг\\ \hline
+    7 &  access\_token & Varchar & Баталгаажуулах токен \\ \hline
+    8 &  expires\_at & Int & Дуусах хугацаа\\ \hline
+    9 &  token\_type & Varchar & Төрөл \\ \hline
+    10 &  scope & Varchar & Нэвтрэлтийн эрх \\ \hline
+    11 &  id\_token & Varchar & Өвөрмөц ID \\ \hline
+    12 &  session\_state & Varchar & Одоо нэвтрэлттэй байгаа эсэх\\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+	\caption{UserUploadedFiles хүснэгт}
+	\begin{tabular}{|l|l|l|p{8cm}|}
+	\hline
+	№ &  Талбарын нэр & Өгөгдлийн төрөл & Тайлбар \\ \hline
+	1 &  id & Varchar & Хэрэгдэгчийн оруулсан файлын өвөрмөц ID\\ \hline
+	2 &  userId & Varchar & Файлыг байршуулсан хэрэглэгчийн ID \\ \hline
+	3 &  fileName & Varchar & Файлын нэр\\ \hline
+	4 &  filePath & Varchar & Файл хадгалагдаж буй зам \\ \hline
+	5 &  createdAt & DateTime & Файлыг байршуулсан цаг \\ \hline
+	6 &  updatedAt & DateTime & Файлын мэдээлэл хамгийн сүүлд шинэчлэгдсэн цаг \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+	\caption{OtpSecret хүснэгт}
+	\begin{tabular}{|l|l|l|p{8cm}|}
+	\hline
+	№ &  Талбарын нэр & Өгөгдлийн төрөл & Тайлбар \\ \hline
+	1 &  id & Varchar & Нэг удаагийн нууц үг үүсгэх түлхүүрийн ID\\ \hline
+	2 &  userId & Varchar & Холбоотой хэрэглэгчийн ID \\ \hline
+	3 &  isVerified & Boolean & OTP нь баталгаажсан эсэх \\ \hline
+	4 &  secret & Text & Нэг удаагийн нууц үгийн баталгаажуулалтад ашигласан нууц \\ \hline
+	5 &  createdAt & DateTime & OTP үүсгэсэн цаг\\ \hline
+	6 &  updatedAt & DateTime & Хамгийн сүүлд шинэчилсэн цаг\\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+	\caption{SignatureDigest хүснэгт}
+	\begin{tabular}{|l|l|l|p{8cm}|}
+	\hline
+	№ &  Талбарын нэр & Өгөгдлийн төрөл & Тайлбар \\ \hline
+	1 &  id & Varchar & Нууц үгийн хайшийн ID\\ \hline
+	2 &  fileName & Varchar & Холбогдсон файлын нэр \\ \hline
+	3 &  userId & Varchar & Харгалзах хэрэглэгчийн ID\\ \hline
+	4 &  digest & Text & Хайшын утга \\ \hline
+	5 &  createdAt & DateTime & Үүсгэсэн огноо \\ \hline
+	6 &  updatedAt & DateTime & Шинэчилсэн огноо \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+	\caption{UserGeneratedKeys хүснэгт}
+	\begin{tabular}{|l|l|l|p{8cm}|}
+	\hline
+	№ &  Талбарын нэр & Өгөгдлийн төрөл & Тайлбар \\ \hline
+	1 &  id & Varchar & Өвөрмөц ID\\ \hline
+	2 &  userId & Varchar & Түлхүүрийг үүсгэсэн хэрэглэгчийн ID \\ \hline
+	3 &  publicKeyLink & Varchar & Нийтийн түлхүүрийн байршил \\ \hline
+	4 &  privateKeyLink & Varchar & Хувийн түлхүүрийн байршил \\ \hline
+	5 &  createdAt & DateTime & Үүсгэсэн огноо \\ \hline
+	6 &  updatedAt & DateTime & Шинэчилсэн огноо \\ \hline
+\end{tabular}
+\end{table}
