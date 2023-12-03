@@ -74,3 +74,74 @@ Middleware нь кодыг эмх цэгцтэй байхад хэрэг бол�
 \lstinputlisting[language=Typescript,firstline=49,lastline=62, caption=Middleware,label=lst:Middleware,frame=single]{src/code/trpc.ts}
 Бүх API нь нэгдсэн байдлаар нэг газар зангидагдаж байх ёстой. Миний хувьд tRPC дээрх бүх API-г root.ts гэдэг файл дотор нэгтгэж сервэрийн кодны үндэс болгож байгаа юм.
 \lstinputlisting[language=Typescript, caption=Root,label=lst:Root,frame=single]{src/code/root.ts}
+
+\section{РСА (RSA) Хэрэгжүүлэлт}
+РСА нь $p$, ба  $q$ хоёр анхны тооны үржигдэхүүнээр $N$ буюу модулус тодорхойлогддог. Гэвч 2048 бит мэтийн маш их олон оронтой тоог анхны тоо эсэхийг нь шалгахад нүсэр тооцоолол орох болдог. Иймд Миллер-Рабины тестийг ашиглаж магадлалаар (probabilistic) анхны тоо эсэхийг нь мэддэг юм. 
+
+
+\lstinputlisting[language=Typescript,firstline=60,lastline=85, caption=RSA хэрэгжүүлэлт=lst:RSA,frame=single]{src/code/rsa.tsx}
+
+Хэдий магадлалаар тооцож байгаа ч $k$ давталтаас хамаарч анхны тоо бус байх магадлал буурна. Жишээ нь $k = 10$ үед $\left(\frac{1}{4}\right)^{10}$ буюу саяд нэг байх магадлалтай байна.
+
+\lstinputlisting[language=Typescript,firstline=16,lastline=48, caption=Миллер-Рабины тест=lst:RSA,frame=single]{src/code/rsa.tsx}
+
+
+
+\section{Үр дүн}
+Төслийн практик ажлын үр дүнд бүтээгдсэн үүлэн тоон гарын үсгийг системийн интерфейс дараах байдлаар харагдана.
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.26]{assets/web/hero.png}
+	\caption{Нүүр хуудас}
+	\label{fig:architecture}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.3]{assets/web/darkhero.png}
+	\caption{Нүүр хуудас, Шөнийн тохиргоо}
+	\label{fig:architecture}
+\end{figure}
+Өөрийн хувийн нийтийн түлхүүрийг, нууц үгтэйгээр үүсгэх хэсэг.
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.45]{assets/web/makepass.png}
+	\caption{Тоон гарын үсэг үүсгэх шаардлага}
+	\label{fig:architecture}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.55]{assets/web/batalgaajuulaltConfirmed.png}
+	\caption{Хүчинтэй гарын үсэгтэй баримт}
+	\label{fig:architecture}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.55]{assets/web/batalgaajuulaltDeclined.png}
+	\caption{Хүчингүй гарын үсэгтэй баримт}
+	\label{fig:architecture}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.5]{assets/web/list.png}
+	\caption{Нийт баримтын жагсаалт}
+	\label{fig:architecture}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.35]{assets/web/rsa.png}
+	\caption{РСА (RSA) алгоритмын хэрэгжүүлэлт}
+	\label{fig:architecture}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.55]{assets/web/2fa.png}
+	\caption{Цагаас хамаарсан нууц үг тохируулах}
+	\label{fig:architecture}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.65]{assets/web/2faconfirm.png}
+	\caption{Цагаас хамаарсан нууц үг тохируулсны дарааа}
+	\label{fig:architecture}
+\end{figure}
