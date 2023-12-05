@@ -152,3 +152,130 @@ $\forall k \in \{0,1\}^k, \forall m \in \{0,1\}^n, D(k, E(k, m)) = m$\\
 	\end{figure}
 
 РСА (RSA) үржигдэхүүн задлах нь(factoring) цифрийн тоо нэмэгдэх тусам илтгэгч функцээр хугацааны ээдрээ тооцогдох тул одоогийн байдлаар РСА (RSA) 1024, РСА (RSA) 2048 нь хангалттай аюулгүй байгаа бөгөөд дэлхий нийтээрээ ашиглаж байна. Энэ нь дээрх диаграммаас харагдана.
+
+\subsection{ECC (Эллипс муруйлаг криптограф)}
+
+Эллипс муруйлаг криптографи (ECC) нь хязгаарлагдмал талбар дээрх эллипс муруйнуудын алгебрийн бүтцэд суурилсан нийтийн түлхүүрийн криптографийн нэг төрөл юм. Том бүхэл тоонуудын үржвэр дээр суурилдаг RSA-аас ялгаатай нь ECC нь эллиптик муруй дискрет логарифмын бодлогыг (ECDLP) шийдвэрлэхэд хүндрэлтэй байдгаас аюулгүй байдлаа олж авдаг. RSA-аас ECC-ийн мэдэгдэхүйц давуу тал нь түүний үр ашигтай байдал юм; ECC нь RSA-тай ижил түвшний аюулгүй байдлыг RSA-н хажууд асар жижиг хэмжээтэй түлхүүрээр олгодог. Үр ашиг нь илүү хурдан тооцоолол, эрчим хүчний бага зарцуулалт, илүү жижиг хэмжээтэй түлхүүр гэх мэт орох ба ECC нь хөдөлгөөнт төхөөрөмж, ухаалаг карт зэрэг хязгаарлагдмал нөөцтэй төхөөрөмжүүдэд илүү тохиромжтой.
+\subsection{ECC ба RSA харьцуулалт}
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|c|c|}
+	\hline
+	\textbf{Битийн аюулгүй байдлын түвшин} & \textbf{RSA бит хэмжээ} & \textbf{ECC бит хэмжээ} \\ \hline
+	80                          & 1024                      & 160                       \\ \hline
+	112                         & 2048                      & 224                       \\ \hline
+	128                         & 3072                      & 256                       \\ \hline
+	192                         & 7680                      & 384                       \\ \hline
+	256                         & 15360                     & 512                       \\ \hline
+	\end{tabular}
+	\caption{Аюулгүй байдлын түвшин ба RSA болон ECC түлхүүрийн хэмжээг харьцуулах \cite{RSAvsECC}}
+	\label{tab:rsa_ecc_key_sizes}
+	\end{table}
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[scale=0.6]{assets/graphs/keysize.png}
+		\caption{RSA ба ECC түлхүүрийн хэмжээнүүдийн харьцуулалт}
+		\label{fig:architecture}
+	\end{figure}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[scale=0.65]{assets/graphs/1.png}
+		\caption{8 бит өгөгдөл шифрлэлт}
+		\label{fig:architecture}
+	\end{figure}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[scale=0.65]{assets/graphs/2.png}
+		\caption{64 бит өгөгдөл шифрлэлт}
+		\label{fig:architecture}
+	\end{figure}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[scale=0.65]{assets/graphs/3.png}
+		\caption{256 бит өгөгдөл шифрлэлт}
+		\label{fig:architecture}
+	\end{figure}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[scale=0.65]{assets/graphs/4.png}
+		\caption{8 бит өгөгдөл шифрлэлт тайлалт}
+		\label{fig:architecture}
+	\end{figure}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[scale=0.65]{assets/graphs/5.png}
+		\caption{64 бит өгөгдөл шифрлэлт тайлалт}
+		\label{fig:architecture}
+	\end{figure}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[scale=0.65]{assets/graphs/6.png}
+		\caption{256 бит өгөгдөл шифрлэлт тайлалт}
+		\label{fig:architecture}
+	\end{figure}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[scale=0.65]{assets/graphs/7.png}
+		\caption{8 бит өгөгдөл хугацааны харьцуулалт}
+		\label{fig:architecture}
+	\end{figure}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[scale=0.65]{assets/graphs/8.png}
+		\caption{64 бит өгөгдөл хугацааны харьцуулалт}
+		\label{fig:architecture}
+	\end{figure}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[scale=0.65]{assets/graphs/9.png}
+		\caption{256 бит өгөгдөл хугацааны харьцуулалт}
+		\label{fig:architecture}
+	\end{figure}
+	
+	
+	\begin{table}
+	\centering
+	\caption{8 бит өгөгдөл – шифрлэлт ба шифр тайлах хугацаа (Секундээр) \cite{RSAvsECC}}
+	\begin{tabular}{|c|c|c|c|c|c|c|}
+	\hline
+	Хамгаалалт & ECC шифр & RSA шифр & ECC тайлах & RSA тайлах & ECC & RSA \\
+	\hline
+	80 & 0.4885 & 0.0307 & 1.3267 & 0.7543 & 1.8152 & 0.7850 \\
+	112 & 2.2030 & 0.0299 & 1.5863 & 2.7075 & 3.7893 & 2.7375 \\
+	128 & 3.8763 & 0.0305 & 1.7690 & 6.9409 & 5.6453 & 6.9714 \\
+	144 & 4.7266 & 0.0489 & 2.0022 & 13.6472 & 6.7288 & 13.6962 \\
+	\hline
+	\end{tabular}
+	\end{table}
+	
+	\begin{table}
+	\centering
+	\caption{64 бит өгөгдөл – шифрлэлт ба шифр тайлах хугацаа (Секундээр) \cite{RSAvsECC}}
+	\begin{tabular}{|c|c|c|c|c|c|c|}
+	\hline
+	Хамгаалалт & ECC шифр & RSA шифр & ECC тайлах & RSA тайлах & ECC  & RSA  \\
+	\hline
+	80 & 2.1685 & 0.1366 & 5.9099 & 5.5372 & 8.0784 & 5.6738 \\
+	112 & 9.9855 & 0.1635 & 6.9333 & 20.4108 & 16.9188 & 20.5743 \\
+	128 & 15.0882 & 0.1672 & 7.3584 & 46.4782 & 22.4466 & 46.6454 \\
+	144 & 20.2308 & 0.1385 & 8.4785 & 77.7642 & 28.7093 & 77.9027 \\
+	\hline
+	\end{tabular}
+	\end{table}
+	
+	\begin{table}
+	\centering
+	\caption{256 бит өгөгдөл – шифрлэлт ба шифр тайлах хугацаа (Секундээр) \cite{RSAvsECC}}
+	\begin{tabular}{|c|c|c|c|c|c|c|}
+	\hline
+	Хамгаалалт & ECC шифр & RSA шифр & ECC тайлах & RSA тайлах & ECC  & RSA  \\
+	\hline
+	80 & 7.9240 & 0.5596 & 22.8851 & 19.3177 & 30.8091 & 19.8772 \\
+	112 & 39.7008 & 0.5815 & 26.3331 & 102.0337 & 66.0339 & 102.6153 \\
+	128 & 58.4386 & 0.5611 & 27.4060 & 209.6086 & 85.8446 & 210.1697 \\
+	144 & 77.5034 & 0.5718 & 32.1522 & 311.0649 & 109.6556 & 311.6368 \\
+	\hline
+	\end{tabular}
+	\end{table}
+	
