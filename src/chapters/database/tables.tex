@@ -1,4 +1,4 @@
-\section{ER диаграм}
+
 \begin{table}[h]
 	\caption{User хүснэгт}
 	\begin{tabular}{|l|l|l|p{8cm}|}
@@ -11,10 +11,8 @@
     4 &  name & Varchar & Хэрэглэгчийн интерфейсээс оруулсан хэрэглэгчийн нэр. Зөвхөн латин үсгийг хадгална. \\ \hline
 	5 &  emailVerified & DateTime & Хэрэглэгчийн имэйлийг баталгаажуулсан цагийн тэмдэ \\ \hline
 	6 &  image & Varchar & Хэрэглэгчийн байршуулсан зургийн холбоос хадгалагдах бөгөөд зам нь энэ талбарт хадгалагдана \\ \hline
-	7 &  role & ENUM & Хэрэглэгчийн нэвтрэлтийн эрх (USER, ADMIN) \\ \hline
 \end{tabular}
 \end{table}
-
 
 \begin{table}[h]
 	\caption{Session хүснэгт}
@@ -28,6 +26,19 @@
 \end{tabular}
 \end{table}
 
+\begin{table}[h]
+	\caption{UserGeneratedKeys хүснэгт}
+	\begin{tabular}{|l|l|l|p{8cm}|}
+	\hline
+	№ &  Талбарын нэр & Өгөгдлийн төрөл & Тайлбар \\ \hline
+	1 &  id & Varchar & Өвөрмөц ID\\ \hline
+	2 &  userId & Varchar & Түлхүүрийг үүсгэсэн хэрэглэгчийн ID \\ \hline
+	3 &  publicKeyLink & Varchar & Нийтийн түлхүүрийн байршил \\ \hline
+	4 &  privateKeyLink & Varchar & Хувийн түлхүүрийн байршил \\ \hline
+	5 &  createdAt & DateTime & Үүсгэсэн огноо \\ \hline
+	6 &  updatedAt & DateTime & Шинэчилсэн огноо \\ \hline
+\end{tabular}
+\end{table}
 \begin{table}[h]
 	\caption{VerificationToken хүснэгт}
 	\begin{tabular}{|l|l|l|p{8cm}|}
@@ -96,20 +107,6 @@
 	2 &  fileName & Varchar & Холбогдсон файлын нэр \\ \hline
 	3 &  userId & Varchar & Харгалзах хэрэглэгчийн ID\\ \hline
 	4 &  digest & Text & Хайшын утга \\ \hline
-	5 &  createdAt & DateTime & Үүсгэсэн огноо \\ \hline
-	6 &  updatedAt & DateTime & Шинэчилсэн огноо \\ \hline
-\end{tabular}
-\end{table}
-
-\begin{table}[h]
-	\caption{UserGeneratedKeys хүснэгт}
-	\begin{tabular}{|l|l|l|p{8cm}|}
-	\hline
-	№ &  Талбарын нэр & Өгөгдлийн төрөл & Тайлбар \\ \hline
-	1 &  id & Varchar & Өвөрмөц ID\\ \hline
-	2 &  userId & Varchar & Түлхүүрийг үүсгэсэн хэрэглэгчийн ID \\ \hline
-	3 &  publicKeyLink & Varchar & Нийтийн түлхүүрийн байршил \\ \hline
-	4 &  privateKeyLink & Varchar & Хувийн түлхүүрийн байршил \\ \hline
 	5 &  createdAt & DateTime & Үүсгэсэн огноо \\ \hline
 	6 &  updatedAt & DateTime & Шинэчилсэн огноо \\ \hline
 \end{tabular}
